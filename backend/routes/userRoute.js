@@ -8,7 +8,7 @@ import {
   verifyOTP,
   resetPassword
 } from '../controllers/userController.js';
-import authMiddleware, { isAdmin } from '../middleware/auth.js'; // Đổi sang file chuẩn
+import authMiddleware, { isAdmin } from '../middleware/auth.js';
 
 const userRouter = express.Router();
 
@@ -21,7 +21,7 @@ userRouter.post('/login', loginUser);        // Đăng nhập
 userRouter.get('/all', authMiddleware, isAdmin, getAllUsers);
 
 // Cập nhật quyền (role) user: chỉ admin mới chỉnh được
-userRouter.put('/role', authMiddleware, isAdmin, updateUserRole);
+userRouter.put('/update-role', authMiddleware, isAdmin, updateUserRole); // 🔥 đổi thành /update-role
 
 // ================== FORGOT PASSWORD FLOW ==================
 userRouter.post('/forgot-password', forgotPassword); // Gửi OTP qua email

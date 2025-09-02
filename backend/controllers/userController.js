@@ -90,12 +90,19 @@ const registerUser = async (req, res) => {
 const getAllUsers = async (req, res) => {
   try {
     const users = await userModel.find({}, "username email role createdAt");
-    res.status(200).json(users);
+    res.status(200).json({
+      success: true,
+      users, // ✅ luôn gói trong "users"
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: "Lỗi server khi lấy danh sách người dùng." });
+    res.status(500).json({
+      success: false,
+      message: "Lỗi server khi lấy danh sách người dùng.",
+    });
   }
 };
+
 
 // ================== UPDATE USER ROLE (Admin Only) ==================
 const updateUserRole = async (req, res) => {
@@ -109,8 +116,9 @@ const updateUserRole = async (req, res) => {
     const updatedUser = await userModel.findByIdAndUpdate(
       userId,
       { role },
-      { new: true }
+      { new: true, select: "username email role createdAt" }
     );
+
     if (!updatedUser) {
       return res.status(404).json({ success: false, message: "User không tồn tại." });
     }

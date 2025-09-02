@@ -1,3 +1,4 @@
+// admin/src/pages/Dashboard.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { styles } from '../assets/dummyadmin';
@@ -7,7 +8,7 @@ import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend,
 } from 'recharts';
 
-import UserListModal from '../components/UserListModal'; 
+import UserListModal from '../components/UserListModal';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Dashboard = () => {
   const [rangeStats, setRangeStats] = useState([]);
   const [range, setRange] = useState('day');
 
-  // Thêm state modal và danh sách user
+  // Modal + user list
   const [showUserModal, setShowUserModal] = useState(false);
   const [userList, setUserList] = useState([]);
 
@@ -42,16 +43,32 @@ const Dashboard = () => {
     fetchRangeStats();
   }, [range]);
 
-  // Hàm xử lý click card Người Dùng
-  const handleUserClick = async () => {
+  // ✅ Hàm lấy danh sách người dùng (dùng lại cho refresh sau khi đổi role)
+  const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/api/user/all');
-      setUserList(res.data);
-      setShowUserModal(true);
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        alert("Bạn chưa đăng nhập!");
+        return;
+      }
+
+      const res = await axios.get("http://localhost:4000/api/user/all", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setUserList(res.data.users || []); // đảm bảo là array
     } catch (error) {
-      console.error('Lỗi lấy danh sách người dùng:', error);
-      alert('Không thể tải danh sách người dùng');
+      console.error("Lỗi lấy danh sách người dùng:", error);
+      alert("Không thể tải danh sách người dùng");
     }
+  };
+
+  // ✅ Khi click card Người Dùng
+  const handleUserClick = async () => {
+    await fetchUsers();
+    setShowUserModal(true);
   };
 
   const Card = ({ icon: Icon, label, value, color, onClick }) => (
@@ -93,7 +110,7 @@ const Dashboard = () => {
             label='Người Dùng'
             value={stats?.totalUsers ?? '...'}
             color='text-amber-200'
-            onClick={handleUserClick} // Thêm sự kiện click mở modal
+            onClick={handleUserClick} // mở modal
           />
           <Card
             icon={FaDollarSign}
@@ -131,11 +148,12 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Modal hiện danh sách người dùng */}
+      {/* ✅ Modal hiện danh sách người dùng kèm refresh */}
       <UserListModal
         isOpen={showUserModal}
         onClose={() => setShowUserModal(false)}
         users={userList}
+        refreshUsers={fetchUsers}
       />
     </div>
   );
