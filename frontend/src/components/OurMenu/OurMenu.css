@@ -44,3 +44,7 @@
     overflow: hidden;
 }
 
+.custom-select option {
+  background-color: #1a120b; /* Đen nâu sang trọng */
+  color: #fbbf24;           /* Vàng amber */
+}
