@@ -1,25 +1,29 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
+// admin/src/components/PrivateRoute.jsx
+import React from "react";
+import { Navigate } from "react-router-dom";
+import AccessDenied from "../pages/AccessDenied";
 
-// PrivateRoute kiểm tra token + role
 const PrivateRoute = ({ children, roleRequired }) => {
-  const token = localStorage.getItem('authToken'); // 🔹 đồng bộ với AdminLogin.jsx
-  const userRole = localStorage.getItem('role');
+  const token = localStorage.getItem("authToken");
+  const userRole = localStorage.getItem("role");
 
-  // Nếu không có token thì về login
-  if (!token) {
-    return <Navigate to="/login" replace />;
+  if (!token) return <Navigate to="/login" replace />;
+
+  // Nếu không truyền roleRequired thì cho qua
+  if (!roleRequired) return children;
+
+  // Admin luôn full quyền
+  if (userRole === "admin") return children;
+
+  // Nếu roleRequired là array => check includes
+  if (Array.isArray(roleRequired)) {
+    if (!roleRequired.includes(userRole)) return <AccessDenied />;
+    return children;
   }
 
-  // Nếu route yêu cầu role cụ thể nhưng user không đủ quyền
-  if (roleRequired && userRole !== roleRequired) {
-    // Admin luôn có quyền cao nhất
-    if (userRole !== 'admin') {
-      return <Navigate to="/login" replace />;
-    }
-  }
+  // Nếu roleRequired là string => check trực tiếp
+  if (userRole !== roleRequired) return <AccessDenied />;
 
-  // ✅ Cho phép truy cập
   return children;
 };
 
