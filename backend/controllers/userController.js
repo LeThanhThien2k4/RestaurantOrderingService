@@ -1,4 +1,3 @@
-// userController.js
 import userModel from "../modals/userModal.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
@@ -18,8 +17,8 @@ const transporter = nodemailer.createTransport({
 let otpStore = {};
 
 // Tạo JWT token
-const createToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "2h" });
+const createToken = (id, role) => {
+  return jwt.sign({ id, role }, process.env.JWT_SECRET, { expiresIn: "2h" });
 };
 
 // ================== LOGIN ==================
@@ -36,8 +35,14 @@ const loginUser = async (req, res) => {
       return res.json({ success: false, message: "Invalid credentials" });
     }
 
-    const token = createToken(user._id);
-    res.json({ success: true, token });
+    const token = createToken(user._id, user.role);
+    res.json({
+      success: true,
+      token,
+      role: user.role,
+      username: user.username,
+      email: user.email,
+    });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: "Login failed. Please try again." });
@@ -72,9 +77,9 @@ const registerUser = async (req, res) => {
     });
 
     const user = await newUser.save();
-    const token = createToken(user._id);
+    const token = createToken(user._id, user.role);
 
-    res.status(201).json({ success: true, token });
+    res.status(201).json({ success: true, token, role: user.role });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Đăng ký thất bại. Vui lòng thử lại." });
@@ -84,11 +89,35 @@ const registerUser = async (req, res) => {
 // ================== GET ALL USERS ==================
 const getAllUsers = async (req, res) => {
   try {
-    const users = await userModel.find({}, "email password");
+    const users = await userModel.find({}, "username email role createdAt");
     res.status(200).json(users);
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: "Lỗi server khi lấy danh sách người dùng." });
+  }
+};
+
+// ================== UPDATE USER ROLE (Admin Only) ==================
+const updateUserRole = async (req, res) => {
+  const { userId, role } = req.body;
+
+  if (!['user', 'staff', 'admin'].includes(role)) {
+    return res.status(400).json({ success: false, message: "Role không hợp lệ." });
+  }
+
+  try {
+    const updatedUser = await userModel.findByIdAndUpdate(
+      userId,
+      { role },
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ success: false, message: "User không tồn tại." });
+    }
+    res.json({ success: true, message: "Cập nhật quyền thành công.", user: updatedUser });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Lỗi server khi cập nhật quyền." });
   }
 };
 
@@ -103,14 +132,12 @@ const forgotPassword = async (req, res) => {
       return res.status(404).json({ success: false, message: "Email không tồn tại." });
     }
 
-    // Tạo OTP 6 số và hạn 5 phút
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     otpStore[email] = {
       code: otp,
-      expires: Date.now() + 5 * 60 * 1000, // 5 phút
+      expires: Date.now() + 5 * 60 * 1000,
     };
 
-    // Gửi email
     await transporter.sendMail({
       from: '"FOODIEFRENZY" <2200007423@nttu.edu.vn>',
       to: email,
@@ -163,6 +190,7 @@ export {
   loginUser,
   registerUser,
   getAllUsers,
+  updateUserRole,
   forgotPassword,
   verifyOTP,
   resetPassword,

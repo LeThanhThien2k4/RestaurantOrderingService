@@ -12,7 +12,7 @@ import {socialIcons} from '../../assets/dummydata'
 
 
 const Footer = () => {
-            const [email, setEmail] = useState('');
+        const [email, setEmail] = useState('');
         const handleSubmit = (e) => {
         e.preventDefault();
         alert(`Thanks for subscribing! We'll send updates to ${email}`);

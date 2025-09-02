@@ -153,3 +153,10 @@ export const layoutClasses = {
     card: 'bg-[#4b3b3b]/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border-2 border-amber-500/20',
     heading: 'text-3xl font-bold mb-8 bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent text-center',
 };
+
+// ========== Thêm 2 biến cho form input (Login, Signup) ==========
+export const iconClass =
+  "absolute left-3 top-1/2 transform -translate-y-1/2 text-amber-400";
+
+export const inputBase =
+  "w-full bg-[#1E120A] text-amber-100 border border-amber-400 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none";
