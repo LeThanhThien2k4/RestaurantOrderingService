@@ -31,7 +31,7 @@ const Navbar = () => {
           href: "/orders",
           icon: navLinks.find((l) => l.name === "Orders")?.icon,
         },
-        { name: "Chat Admin", href: "/admin/chat", icon: <FaComments className="mr-1" /> },
+        { name: "Chat", href: "/admin/chat", icon: <FaComments className="mr-1" /> },
       ];
     }
     if (role === "user") {
