@@ -13,13 +13,15 @@ import MyOrderPage from './pages/MyOrderPage/MyOrderPage'
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword'
 import VerifyOTP from './pages/VerifyOTP/VerifyOTP'
 import ResetPassword from './pages/ResetPassword/ResetPassword'
+import ChatBot from './components/ChatBot/ChatBot'
 
 
 
 
 const App = () => {
   return (
-   <Routes>
+    <>   
+    <Routes>
       <Route path='/' element={<Home />}/>
       <Route path='/contact' element={<ContactPage/>}/>
       <Route path='/about' element={<AboutPage/>} />
@@ -44,6 +46,9 @@ const App = () => {
           <Route path='/myorder' element={<PrivateRoute><MyOrderPage /></PrivateRoute>}/>
      
    </Routes>
+   <ChatBot/>
+   </>
+
   )
 }
 
