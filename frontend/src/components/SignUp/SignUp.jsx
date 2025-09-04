@@ -6,12 +6,14 @@ import axios from 'axios';
 const url = 'http://localhost:4000';
 
 const AwesomeToast = ({ message, icon }) => (
-  <div className='animate-slide-in fixed bottom-6 right-6 flex items-center bg-gradient-to-br from-amber-500 to-amber-600
+  <div className='animate-slide-in fixed top-6 right-6 flex items-center 
+  bg-gradient-to-br from-amber-500 to-amber-600
   px-6 py-4 rounded-lg shadow-lg border-2 border-amber-300/20 z-50'>
     <span className='text-2xl mr-3 text-[#2D1B0E]'>{icon}</span>
     <span className='font-semibold text-[#2D1B0E]'>{message}</span>
   </div>
 );
+
 
 const SignUp = () => {
   const [showToast, setShowToast] = useState({ visible: false, message: '', icon: null });
