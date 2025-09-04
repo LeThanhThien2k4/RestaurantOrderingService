@@ -94,9 +94,9 @@ const OurMenu = () => {
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="appearance-none w-full bg-gradient-to-r from-amber-900/80 to-amber-800/70
-                           border border-amber-600/40 rounded-xl px-4 py-2 text-sm text-white 
-                           shadow-lg shadow-black/20 focus:outline-none focus:ring-2 focus:ring-amber-400/60 
-                           transition-all duration-300 cursor-pointer"
+             border border-amber-600/40 rounded-xl px-4 pr-10 py-2 text-sm text-white 
+             shadow-lg shadow-black/20 focus:outline-none focus:ring-2 focus:ring-amber-400/60 
+             transition-all duration-300 cursor-pointer leading-6 custom-select"
               >
                 {categories.map((cat) => (
                   <option key={cat} value={cat} className="bg-[#2a1e14] text-amber-100">

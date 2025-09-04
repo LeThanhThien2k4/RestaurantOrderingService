@@ -27,12 +27,12 @@ const loginUser = async (req, res) => {
   try {
     const user = await userModel.findOne({ email });
     if (!user) {
-      return res.json({ success: false, message: "User doesn't exist" });
+      return res.json({ success: false, message: "Tài khoản không tồn tại" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.json({ success: false, message: "Invalid credentials" });
+      return res.json({ success: false, message: "Đăng nhập không thành công" });
     }
 
     const token = createToken(user._id, user.role);

@@ -118,9 +118,11 @@ const OurHomeMenu = () => {
                             ):(
                                 <button 
                                 onClick={() => addToCart(item,1)}
-                                 className=' bg-amber-900/40 px-4 py-1.5 rounded-full font-cinzel text-xs uppercase sm:text-sm tracking-wider transition-transform duration-300
-                                 hover:scale-110 hover:shadow-lg hover:shadow-amber-900/20 relative overflow-hidden
-                                  border border-amber-800/50 '>
+                                 className='relative px-5 py-2 rounded-full font-cinzel text-sm uppercase tracking-wide
+                                    bg-gradient-to-r from-amber-500 to-amber-600 text-white 
+                                    shadow-md shadow-amber-900/30 border border-amber-700/50
+                                    hover:from-amber-400 hover:to-amber-500 hover:shadow-lg hover:shadow-amber-800/40
+                                    transition-all duration-300 ease-out transform hover:scale-105 '>
                                     <span className=' relative z-10 text-xs text-white'>
                                         Add to Cart
                                     </span>
