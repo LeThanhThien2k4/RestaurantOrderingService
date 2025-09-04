@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { FaArrowLeft } from 'react-icons/fa'
 import { FiClock, FiTruck, FiCheckCircle, FiUser, FiMapPin, FiBox, FiArrowLeft, FiTrash2 } from 'react-icons/fi'
+import { buildImageUrl } from "../../utils/image";
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
@@ -212,7 +213,8 @@ const MyOrder = () => {
                                                 <div className='space-y-2'>
                                                     {order.items.map((item, index) => (
                                                         <div key={`${order._id}-${index}`} className='flex items-center gap-3 p-2 bg-[#3a2b2b]/50 rounded-lg'>
-                                                            <img src={`http://localhost:4000${item.item.imageUrl}`} alt={item.item.name}
+                                                            <img src={buildImageUrl(item.imageUrl || item.image)}
+                                                                                    alt={item.name}
                                                                 className='w-10 h-10 object-cover rounded-lg' />
                                                             <div className='flex-1 text-left'>
                                                                 <span className='text-amber-100/80 text-sm block'>{item.item.name}</span>

@@ -13,6 +13,7 @@ import orderRouter from './routes/orderRoute.js';
 import dashboardRoutes from './routes/dashboardRoute.js';
 import messageRoutes from './routes/messageRoutes.js'
 import chatRoutes from "./routes/chat.js";
+import uploadRoutes from "./routes/uploadRoute.js";
 
 dotenv.config();
 
@@ -52,7 +53,7 @@ app.use('/api/cart', cartRouter)
 app.use('/api/orders', orderRouter)
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/messages', messageRoutes)
-
+app.use("/api", uploadRoutes);
 
 
 app.use("/api/chat", chatRoutes);

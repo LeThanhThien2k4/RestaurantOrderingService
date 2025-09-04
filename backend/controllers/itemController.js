@@ -1,10 +1,19 @@
 import itemModal from "../modals/itemModal.js";
+import { v2 as cloudinary } from "cloudinary";
 
 // CREATE ITEM
 export const createItem = async (req, res, next) => {
   try {
     const { name, description, category, price, rating, hearts } = req.body;
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : '';
+    let imageUrl = "";
+
+    if (req.file) {
+      const result = await cloudinary.uploader.upload(req.file.path, {
+        folder: "foodie_items", // Tạo folder riêng trên Cloudinary
+      });
+      imageUrl = result.secure_url;
+    }
+
     const total = Number(price) * 1;
 
     const newItem = new itemModal({
@@ -14,15 +23,15 @@ export const createItem = async (req, res, next) => {
       price,
       rating,
       hearts,
-      imageUrl,
-      total
+      imageUrl, // Link từ Cloudinary
+      total,
     });
 
     const saved = await newItem.save();
     res.status(201).json(saved);
   } catch (err) {
     if (err.code === 11000) {
-      res.status(400).json({ message: 'Item name already exists' });
+      res.status(400).json({ message: "Item name already exists" });
     } else {
       next(err);
     }
@@ -33,11 +42,11 @@ export const createItem = async (req, res, next) => {
 export const getItems = async (_req, res, next) => {
   try {
     const items = await itemModal.find().sort({ createdAt: -1 });
-    const host = `${_req.protocol}://${_req.get('host')}`;
 
-    const withFullUrl = items.map(i => ({
+    // Với Cloudinary thì imageUrl đã là full link
+    const withFullUrl = items.map((i) => ({
       ...i.toObject(),
-      imageUrl: i.imageUrl ? host + i.imageUrl : '',
+      imageUrl: i.imageUrl || "",
     }));
 
     res.json(withFullUrl);
@@ -68,24 +77,30 @@ export const updateItem = async (req, res, next) => {
       price,
       rating,
       hearts,
-      total: Number(price) * 1
+      total: Number(price) * 1,
     };
 
     if (req.file) {
-      updateData.imageUrl = `/uploads/${req.file.filename}`;
+      const result = await cloudinary.uploader.upload(req.file.path, {
+        folder: "foodie_items",
+      });
+      updateData.imageUrl = result.secure_url;
     }
 
-    const updated = await itemModal.findByIdAndUpdate(req.params.id, updateData, {
-      new: true,
-      runValidators: true
-    });
+    const updated = await itemModal.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
 
     if (!updated) return res.status(404).json({ message: "Item not found" });
 
-    const host = `${req.protocol}://${req.get('host')}`;
     const updatedItem = {
       ...updated.toObject(),
-      imageUrl: updated.imageUrl ? host + updated.imageUrl : '',
+      imageUrl: updated.imageUrl || "",
     };
 
     res.json(updatedItem);

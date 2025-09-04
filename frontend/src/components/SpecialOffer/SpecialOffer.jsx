@@ -5,7 +5,7 @@ import { FaFire, FaHeart, FaPlus, FaStar } from 'react-icons/fa';
 import { HiMinus, HiPlus } from "react-icons/hi";
 import FloatingParticle  from '../FloatingParticle/FloatingParticle'
 import axios from 'axios';
-
+import { buildImageUrl } from "../../utils/image";
 
 const SpecialOffer = () => {
 
@@ -50,7 +50,7 @@ const SpecialOffer = () => {
                   hover:shadow-red-900/40 border-2 border-transparent hover:border-amber-500/20 before:absolute
                    before:inset-0 hover:before:opacity-20'>
                     <div className=' relative h-72 overflow-hidden'>
-                    <img src={item.imageUrl} alt={item.name} className=' w-full h-full object-cover
+                    <img src={buildImageUrl(item.imageUrl || item.image)} alt={item.name} className=' w-full h-full object-cover
                     brightness-90 group-hover:brightness-110 transition-all duration-500' />
                     <div className=' absolute inset-0 bg-gradient-to-b from-transparent via-transparent
                      to-black/90'/>

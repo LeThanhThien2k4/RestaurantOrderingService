@@ -4,6 +4,7 @@ import axios from 'axios';
 import { FaPlus, FaMinus, FaStar } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import './OurMenu.css';
+import { buildImageUrl } from "../../utils/image";
 
 const categories = ['Tất cả', 'Breakfast', 'Lunch', 'Dinner', 'Mexican', 'Italian', 'Desserts', 'Drinks'];
 
@@ -207,7 +208,12 @@ const OurMenu = () => {
                   style={{ '--index': i }}
                 >
                   <div className="relative h-48 sm:h-56 md:h-60 flex items-center justify-center bg-black/10">
-                    <img src={item.imageUrl || item.image} alt={item.name} className="max-h-full max-w-full object-contain transition-all duration-700" />
+                    <img 
+                        src={buildImageUrl(item.imageUrl || item.image)}
+                        alt={item.name}
+                        className="max-h-full max-w-full object-contain transition-all duration-700" 
+                    />
+
                   </div>
 
                   <div className="p-4 sm:p-6 flex flex-col flex-grow">

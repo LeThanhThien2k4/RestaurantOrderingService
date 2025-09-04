@@ -5,6 +5,7 @@ import {FaPlus, FaMinus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './OurHomeMenu.css'
 import axios from 'axios';
+import { buildImageUrl } from "../../utils/image";
 
  const categories = ['Breakfast', 'Lunch', 'Dinner', 'Mexican', 'Italian', 'Desserts', 'Drinks'];
 
@@ -75,7 +76,7 @@ const OurHomeMenu = () => {
                      border-amber-800/30 backdrop-blur-sm flex flex-col transition-all duration-500'
                         style={{ '--index': i }}>
                         <div className=' relative h-48 sm:h-56 md:h-60 flex items-center justify-center bg-black/10'>
-                        <img src={item.imageUrl} alt={item.name}
+                        <img src={buildImageUrl(item.imageUrl || item.image)} alt={item.name}
                          className=' max-h-full max-w-full object-contain transition-all duration-700' />
                         </div>
 

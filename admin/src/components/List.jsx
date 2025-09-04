@@ -3,6 +3,7 @@ import { styles } from '../assets/dummyadmin';
 import { FiHeart, FiStar, FiTrash2, FiTool } from 'react-icons/fi';
 import axios from 'axios';
 import EditItemModal from './EditItemModal';
+import { buildImageUrl } from '../utils/image'
 
 const List = () => {
   const [items, setItems] = useState([]);
@@ -98,7 +99,9 @@ const List = () => {
                 {filteredItems.map(item => (
                   <tr key={item._id} className={styles.tr}>
                     <td className={styles.imgCell}>
-                      <img src={item.imageUrl} alt={item.name} className={styles.img} />
+                      <img  src={buildImageUrl(item.imageUrl)}
+                            alt={item.name}
+                            className={styles.img} />
                     </td>
                     <td className={styles.nameCell}>
                       <div className='space-y-1'>
