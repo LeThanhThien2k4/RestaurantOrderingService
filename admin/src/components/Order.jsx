@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { tableClasses, statusStyles, paymentMethodDetails } from '../assets/dummyadmin';
 import { FiUser, FiClock, FiTruck, FiCheckCircle, FiTrash2 } from 'react-icons/fi';
 import axios from 'axios';
-
+import { buildImageUrl } from '../utils/image';
 const iconMap = {
   FiClock: <FiClock className="text-lg" />,
   FiTruck: <FiTruck className="text-lg" />,
@@ -131,7 +131,7 @@ const Order = () => {
                             className="flex items-center gap-3 p-2 bg-[#3a2b2b]/50 rounded-lg"
                           >
                             <img
-                              src={`http://localhost:4000${item.item.imageUrl}`}
+                              src={buildImageUrl(item.item.imageUrl || item.item.image)}
                               alt={item.item.name}
                               className="w-10 h-10 object-cover rounded-lg"
                             />
