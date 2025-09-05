@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCart } from '../../CartContext/CartContext';
 import axios from 'axios';
-import { FaPlus, FaMinus, FaStar } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaStar, FaSearch } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import './OurMenu.css';
 import { buildImageUrl } from "../../utils/image";
@@ -12,35 +12,30 @@ const OurMenu = () => {
   const [selectedCategory, setSelectedCategory] = useState('Tất cả');
   const { cartItems, addToCart, removeFromCart, updateQuantity } = useCart();
   const [menuData, setMenuData] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [priceRange, setPriceRange] = useState([0, 1000]); 
   const [ratingFilter, setRatingFilter] = useState(0);
-  const [sortBy, setSortBy] = useState('newest'); // 🔥 State cho Sort
+  const [sortBy, setSortBy] = useState('newest');
   const location = useLocation();
+
+  // 🔥 Đồng bộ search từ URL
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const q = params.get('search') || '';
+    setSearchQuery(q);
+  }, [location.search]);
 
   useEffect(() => {
     const fetchMenu = async () => {
       try {
         const res = await axios.get('http://localhost:4000/api/items');
         setMenuData(res.data);
-
-        const params = new URLSearchParams(location.search);
-        const keyword = params.get('search')?.toLowerCase();
-        if (keyword) {
-          const results = res.data.filter(item =>
-            item.name.toLowerCase().includes(keyword)
-          );
-          setSearchResults(results);
-        } else {
-          setSearchResults([]);
-        }
       } catch (err) {
         console.error('Failed to load menu items:', err);
       }
     };
-
     fetchMenu();
-  }, [location.search]);
+  }, []);
 
   const getCartEntry = id => cartItems.find(ci => ci.item._id === id);
   const getQuantity = id => getCartEntry(id)?.quantity || 0;
@@ -53,10 +48,12 @@ const OurMenu = () => {
       const meetsRating = !ratingFilter || item.rating >= ratingFilter;
       const meetsCategory =
         selectedCategory === 'Tất cả' || item.category === selectedCategory;
-      return meetsPrice && meetsRating && meetsCategory;
+      const meetsSearch =
+        !searchQuery || item.name.toLowerCase().includes(searchQuery.toLowerCase());
+      return meetsPrice && meetsRating && meetsCategory && meetsSearch;
     });
 
-  let displayItems = filterItems(searchResults.length > 0 ? searchResults : menuData);
+  let displayItems = filterItems(menuData);
 
   // 🔥 Sort sản phẩm
   if (sortBy === 'newest') {
@@ -117,38 +114,35 @@ const OurMenu = () => {
           </div>
 
           {/* 🔥 Sort */}
-        <div className="flex flex-col text-amber-100">
-  <label className="mb-1 text-sm font-semibold tracking-wide text-amber-200">
-    Sắp xếp:
-  </label>
-  <div className="relative">
-    <select
-  value={sortBy}
-  onChange={(e) => setSortBy(e.target.value)}
-  className="appearance-none w-full bg-gradient-to-r from-amber-900/80 to-amber-800/70
+          <div className="flex flex-col text-amber-100">
+            <label className="mb-1 text-sm font-semibold tracking-wide text-amber-200">
+              Sắp xếp:
+            </label>
+            <div className="relative">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="appearance-none w-full bg-gradient-to-r from-amber-900/80 to-amber-800/70
              border border-amber-600/40 rounded-xl px-4 pr-10 py-2 text-sm text-white 
              shadow-lg shadow-black/20 focus:outline-none focus:ring-2 focus:ring-amber-400/60 
              transition-all duration-300 cursor-pointer leading-6 custom-select"
->
-  <option value="newest">Mới nhất</option>
-  <option value="popular">Phổ biến nhất</option>
-  <option value="priceLow">Giá: Thấp → Cao</option>
-  <option value="priceHigh">Giá: Cao → Thấp</option>
-</select>
-
-    {/* Icon mũi tên */}
-    <svg
-      className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-amber-300 pointer-events-none"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
-  </div>
-</div>
-
+              >
+                <option value="newest">Mới nhất</option>
+                <option value="popular">Phổ biến nhất</option>
+                <option value="priceLow">Giá: Thấp → Cao</option>
+                <option value="priceHigh">Giá: Cao → Thấp</option>
+              </select>
+              <svg
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-amber-300 pointer-events-none"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
 
           {/* Thanh trượt giá */}
           <div className="flex flex-col text-amber-100">
@@ -180,6 +174,23 @@ const OurMenu = () => {
             </div>
           </div>
 
+          {/* 🔍 Search */}
+          <div className="flex flex-col text-amber-100">
+            <label className="mb-1 text-sm">Tìm kiếm:</label>
+            <div className="relative">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Nhập tên món..."
+                className="bg-gradient-to-r from-amber-900/80 to-amber-800/70 border border-amber-600/40 
+                rounded-xl px-4 py-2 text-sm text-white shadow-lg shadow-black/20 
+                focus:outline-none focus:ring-2 focus:ring-amber-400/60 transition-all duration-300"
+              />
+              <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-amber-300" />
+            </div>
+          </div>
+
           {/* Reset */}
           <button
             onClick={() => { 
@@ -187,6 +198,7 @@ const OurMenu = () => {
               setRatingFilter(0); 
               setSelectedCategory('Tất cả'); 
               setSortBy('newest');
+              setSearchQuery('');
             }}
             className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 text-white text-sm font-semibold hover:scale-105 transition"
           >
@@ -209,11 +221,10 @@ const OurMenu = () => {
                 >
                   <div className="relative h-48 sm:h-56 md:h-60 flex items-center justify-center bg-black/10">
                     <img 
-                        src={buildImageUrl(item.imageUrl || item.image)}
-                        alt={item.name}
-                        className="max-h-full max-w-full object-contain transition-all duration-700" 
+                      src={buildImageUrl(item.imageUrl || item.image)}
+                      alt={item.name}
+                      className="max-h-full max-w-full object-contain transition-all duration-700" 
                     />
-
                   </div>
 
                   <div className="p-4 sm:p-6 flex flex-col flex-grow">
@@ -240,7 +251,6 @@ const OurMenu = () => {
                             >
                               <FaMinus className="text-amber-100" />
                             </button>
-
                             <button
                               className="w-8 h-8 rounded-full bg-amber-900/40 flex items-center justify-center hover:bg-amber-800/50 transition-colors"
                               onClick={() => updateQuantity(cartEntry._id, quantity + 1)}
@@ -249,17 +259,16 @@ const OurMenu = () => {
                             </button>
                           </>
                         ) : (
-                         <button
-                          onClick={() => addToCart(item, 1)}
-                          className="relative px-5 py-2 rounded-full font-cinzel text-sm uppercase tracking-wide
-                                    bg-gradient-to-r from-amber-500 to-amber-600 text-white 
-                                    shadow-md shadow-amber-900/30 border border-amber-700/50
-                                    hover:from-amber-400 hover:to-amber-500 hover:shadow-lg hover:shadow-amber-800/40
-                                    transition-all duration-300 ease-out transform hover:scale-105"
-                        >
-                          <span className="relative z-10">Add to cart</span>
-                        </button>
-
+                          <button
+                            onClick={() => addToCart(item, 1)}
+                            className="relative px-5 py-2 rounded-full font-cinzel text-sm uppercase tracking-wide
+                                      bg-gradient-to-r from-amber-500 to-amber-600 text-white 
+                                      shadow-md shadow-amber-900/30 border border-amber-700/50
+                                      hover:from-amber-400 hover:to-amber-500 hover:shadow-lg hover:shadow-amber-800/40
+                                      transition-all duration-300 ease-out transform hover:scale-105"
+                          >
+                            <span className="relative z-10">Add to cart</span>
+                          </button>
                         )}
                       </div>
                     </div>

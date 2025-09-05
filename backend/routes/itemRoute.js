@@ -4,6 +4,7 @@ import { createItem, getItems, deleteItem, updateItem } from '../controllers/ite
 
 const itemRouter = express.Router();
 
+// Multer storage config
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, 'uploads/'),
   filename: (_req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`),
@@ -11,9 +12,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-itemRouter.post('/', upload.single('image'), createItem);
-itemRouter.get('/', getItems);
-itemRouter.delete('/:id', deleteItem);
-itemRouter.put('/:id', upload.single('image'), updateItem);
+// Routes
+itemRouter.route('/')
+  .post(upload.single('image'), createItem)
+  .get(getItems);
+
+itemRouter.route('/:id')
+  .put(upload.single('image'), updateItem)
+  .delete(deleteItem);
 
 export default itemRouter;
