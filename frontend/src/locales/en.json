@@ -1,0 +1,190 @@
+{
+  "about": {
+    "title": "Fast Food",
+    "subtitle": "Crafting unforgettable dining experiences with passion, flavor, and innovation.",
+    "features": {
+      "1": {
+        "title": "Fresh Ingredients",
+        "text": "We carefully select high-quality ingredients to ensure every dish is delicious and healthy."
+      },
+      "2": {
+        "title": "Unique Recipes",
+        "text": "Our chefs create dishes that combine tradition and creativity for unforgettable flavors."
+      },
+      "3": {
+        "title": "Excellent Service",
+        "text": "Customer satisfaction is our top priority. We always bring you the best experience."
+      }
+    },
+    "stats": {
+      "1": { "label": "Dishes Served" },
+      "2": { "label": "Happy Customers" },
+      "3": { "label": "Awards Won" },
+      "4": { "label": "Years Experience" }
+    },
+    "teamTitle": "Meet Our",
+    "teamHighlight": "Culinary Artists",
+    "team": [
+      {
+        "role": "Head Chef",
+        "bio": "An expert in Asian and European cuisine with more than 15 years of experience."
+      },
+      {
+        "role": "Sous Chef",
+        "bio": "Passionate about modern cooking techniques and creating fresh flavors."
+      },
+      {
+        "role": "Pastry Chef",
+        "bio": "Specializes in cakes and desserts that captivate both the eyes and taste buds."
+      }
+    ]
+  },
+  "aboutHome": {
+    "title": "The elegance of a gourmet",
+    "subtitle": "Where flavors dance & memories bloom",
+    "description": "\"In our kitchen, passion meets precision. We craft not just meals, but culinary journeys that linger on the palate and in the heart.\"",
+    "button": "Our Dishes"
+  },
+  "banner": {
+    "titleLine1": "We are here",
+    "titleLine2": "For Food & Delivery",
+    "description": "The best chefs and the best couriers serve you. Delicious hot food will reach you within 60 minutes.",
+    "searchPlaceholder": "Discover your favorite meal..",
+    "searchButton": "Search",
+    "downloadApp": "Download App",
+    "watchVideo": "Watch Video"
+  },
+  "cartPage": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "browse": "Browse All Items",
+    "remove": "Remove",
+    "continue": "Continue Shopping",
+    "total": "Total",
+    "checkout": "Checkout"
+  },
+  "footer": {
+    "tagline": {
+      "line1": "When culinary artistry meets doorstep convenience.",
+      "line2": "Savor handcrafted perfection, delivered with care."
+    },
+    "subscription": {
+      "title": "Get Exclusive Offer",
+      "placeholder": "Enter your email...",
+      "button": "Join now",
+      "alert": "Thanks for subscribing! We'll send updates to {{email}}"
+    },
+    "navigation": {
+      "title": "Navigation",
+      "home": "Home",
+      "menu": "Menu",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "social": {
+      "title": "Social Connect"
+    },
+    "bottom": {
+      "serving": "Serving all",
+      "designedBy": "Designed by Duong Hong Phuc and Le Thanh Thien"
+    }
+  },
+  "ourHomeMenu": {
+    "title": "Wonderful Menu",
+    "subtitle": "Bursting Flavors",
+    "categories": {
+      "breakfast": "Breakfast",
+      "lunch": "Lunch",
+      "dinner": "Dinner",
+      "mexican": "Mexican",
+      "italian": "Italian",
+      "desserts": "Desserts",
+      "drinks": "Drinks"
+    },
+    "addToCart": "Add to Cart",
+    "exploreMenu": "Explore Menu"
+  },
+  "specialOffer": {
+    "title": "Today's Special Offer",
+    "subtitle": "Enjoy exquisite dishes crafted to perfection.",
+    "add": "Add",
+    "showMore": "Show More",
+    "showLess": "Show Less"
+  },
+  "ourMenu": {
+    "title": "Our Menu",
+    "subtitle": "Delicious dishes for every taste",
+    "category": "Category",
+    "categories": {
+      "all": "All",
+      "breakfast": "Breakfast",
+      "lunch": "Lunch",
+      "dinner": "Dinner",
+      "mexican": "Mexican",
+      "italian": "Italian",
+      "desserts": "Desserts",
+      "drinks": "Drinks"
+    },
+    "sort": "Sort By",
+    "sortOptions": {
+      "newest": "Newest",
+      "popular": "Most Popular",
+      "priceLow": "Price Low to High",
+      "priceHigh": "Price High to Low"
+    },
+    "priceRange": "Price Range",
+    "rating": "Rating",
+    "search": "Search",
+    "searchPlaceholder": "Search for dishes...",
+    "reset": "Reset Filters",
+    "addToCart": "Add to Cart",
+    "noResults": "No items match your search.",
+    "pricePrefix": "VND",
+    "loadError": "Failed to load menu items"
+  }
+  ,
+  "navbar": {
+    "brand": "Foodie",
+    "links": {
+      "home": "Home",
+      "menu": "Menu",
+      "about": "About",
+      "contact": "Contact",
+      "myOrders": "My Orders",
+      "cart": "Cart"
+    },
+    "auth": {
+      "login": "Login",
+      "logout": "Logout"
+    }
+  },
+  "contact": {
+    "title": "Connect With Us",
+    "headquarters": "Our Headquarters",
+    "phoneNumber": "Contact Phone",
+    "email": "Email Address",
+    "name": "Name",
+    "phone": "Phone",
+    "emailField": "Email",
+    "address": "Address",
+    "dish": "Dish",
+    "query": "Query",
+    "emailSubject": "Customer Request",
+    "toastOpeningGmail": "Opening Gmail...",
+    "yourRequest": "Your Request",
+    "queryPlaceholder": "Type your request here...",
+    "submitButton": "Submit Request",
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "dish": "Dish",
+      "namePlaceholder": "Enter your name",
+      "phonePlaceholder": "Enter your phone number",
+      "emailPlaceholder": "Enter your email",
+      "addressPlaceholder": "Enter your address",
+      "dishPlaceholder": "Enter the dish name"
+    }
+  }
+}

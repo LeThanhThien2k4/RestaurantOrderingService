@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { FaDownload, FaPlay, FaSearch, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { bannerAssets } from '../../assets/dummydata'
+import { useTranslation } from "react-i18next";
 
 const Banner = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showVideo, setShowVideo] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const { bannerImage, orbitImages, video } = bannerAssets;
 
@@ -26,14 +28,14 @@ const Banner = () => {
           {/* LEFT CONTENT */}
           <div className='flex-1 space-y-8 relative md:pr-19 text-center md:text-left'>
             <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold leading-tight font-serif drop-shadow-md'>
-              Chúng tôi ở đây <br />
+              {t("banner.titleLine1")} <br />
               <span className='text-amber-400 bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text'>
-                For Food & Delivery
+                {t("banner.titleLine2")}
               </span>
             </h1>
 
             <p className='text-lg md:text-xl font-playfair italic sm:text-xl text-amber-100 max-w-xl opacity-90 mx-auto md:mx-0'>
-              Những đầu bếp giỏi nhất và những người giao hàng giỏi nhất đều phục vụ bạn. Đồ ăn ngon nóng hổi sẽ đến tay bạn trong vòng 60 phút.
+              {t("banner.description")}
             </p>
 
             <form onSubmit={handleSearch} className='relative max-w-2xl mx-auto md:mx-0 group'>
@@ -45,11 +47,11 @@ const Banner = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder='Khám phá bữa ăn yêu thích của bạn..'
+                  placeholder={t("banner.searchPlaceholder")}
                   className='w-full py-4 pr-6 bg-transparent outline-none placeholder-amber-200/70 text-lg font-medium tracking-wide'
                 />
                 <button type='submit' className='mr-4 px-6 py-3 bg-gradient-to-r from-amber-400 to-amber-300 rounded-lg font-semibold text-amber-900 hover:from-amber-300 hover:to-amber-200 transition-all duration-300 shadow-lg hover:shadow-amber-300/20'>
-                  Tìm
+                  {t("banner.searchButton")}
                 </button>
               </div>
             </form>
@@ -57,12 +59,12 @@ const Banner = () => {
             <div className='flex flex-wrap gap-4 justify-center md:justify-start mt-6'>
               <button className='group flex items-center gap-3 bg-amber-800/30 hover:bg-amber-800/50 px-6 py-3 rounded-xl transition-all duration-300 border-2 border-amber-700/50 hover:border-amber-400 backdrop-blur-sm'>
                 <FaDownload className='text-xl text-amber-400 group-hover:animate-bounce' />
-                <span className='text-lg'>Download App</span>
+                <span className='text-lg'>{t("banner.downloadApp")}</span>
               </button>
 
               <button onClick={() => setShowVideo(true)} className='group flex items-center gap-3 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-amber-300/30'>
                 <FaPlay className='text-xl text-amber-900' />
-                <span className='text-lg text-amber-900 font-semibold'>Xem Video</span>
+                <span className='text-lg text-amber-900 font-semibold'>{t("banner.watchVideo")}</span>
               </button>
             </div>
           </div>

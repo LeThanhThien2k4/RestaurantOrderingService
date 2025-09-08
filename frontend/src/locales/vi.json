@@ -1,0 +1,190 @@
+{
+  "about": {
+    "title": "Thức Ăn Nhanh",
+    "subtitle": "Mang đến trải nghiệm ẩm thực khó quên với niềm đam mê, hương vị và sự sáng tạo.",
+    "features": {
+      "1": {
+        "title": "Nguyên Liệu Tươi",
+        "text": "Chúng tôi chọn lọc nguyên liệu chất lượng cao để đảm bảo mỗi món ăn đều ngon miệng và tốt cho sức khỏe."
+      },
+      "2": {
+        "title": "Công Thức Đặc Biệt",
+        "text": "Đầu bếp sáng tạo những món ăn kết hợp giữa truyền thống và hiện đại mang đến hương vị khó quên."
+      },
+      "3": {
+        "title": "Dịch Vụ Tuyệt Vời",
+        "text": "Sự hài lòng của khách hàng là ưu tiên hàng đầu. Chúng tôi luôn mang đến trải nghiệm tốt nhất."
+      }
+    },
+    "stats": {
+      "1": { "label": "Món Ăn Đã Phục Vụ" },
+      "2": { "label": "Khách Hàng Hài Lòng" },
+      "3": { "label": "Giải Thưởng Đạt Được" },
+      "4": { "label": "Năm Kinh Nghiệm" }
+    },
+    "teamTitle": "Gặp Gỡ",
+    "teamHighlight": "Những Nghệ Nhân Ẩm Thực",
+    "team": [
+      {
+        "role": "Bếp Trưởng",
+        "bio": "Chuyên gia ẩm thực Á - Âu với hơn 15 năm kinh nghiệm."
+      },
+      {
+        "role": "Bếp Phó",
+        "bio": "Đam mê kỹ thuật nấu ăn hiện đại và sáng tạo hương vị mới lạ."
+      },
+      {
+        "role": "Bếp Bánh",
+        "bio": "Chuyên làm bánh ngọt và tráng miệng hấp dẫn cả vị giác lẫn thị giác."
+      }
+    ]
+  },
+  "aboutHome": {
+    "title": "Sự thanh lịch của người sành ăn",
+    "subtitle": "Nơi hương vị nhảy múa & Ký ức nở hoa",
+    "description": "\"Trong căn bếp của chúng tôi, đam mê kết hợp cùng sự tinh tế. Chúng tôi tạo nên không chỉ món ăn, mà còn là hành trình ẩm thực lưu lại trên vòm miệng và trong trái tim.\"",
+    "button": "Món ăn của chúng tôi"
+  },
+  "banner": {
+    "titleLine1": "Chúng tôi ở đây",
+    "titleLine2": "For Food & Delivery",
+    "description": "Những đầu bếp giỏi nhất và những người giao hàng giỏi nhất đều phục vụ bạn. Đồ ăn ngon nóng hổi sẽ đến tay bạn trong vòng 60 phút.",
+    "searchPlaceholder": "Khám phá bữa ăn yêu thích của bạn..",
+    "searchButton": "Tìm",
+    "downloadApp": "Tải ứng dụng",
+    "watchVideo": "Xem Video"
+  },
+   "cartPage": {
+    "title": "Giỏ hàng",
+    "empty": "Giỏ hàng của bạn đang trống",
+    "browse": "Xem tất cả sản phẩm",
+    "remove": "Xóa",
+    "continue": "Tiếp tục mua sắm",
+    "total": "Tổng cộng",
+    "checkout": "Thanh toán"
+  },
+  "footer": {
+    "tagline": {
+      "line1": "Khi nghệ thuật ẩm thực gặp gỡ sự tiện lợi tại nhà.",
+      "line2": "Thưởng thức sự hoàn hảo thủ công, giao tận nơi."
+    },
+    "subscription": {
+      "title": "Nhận Ưu Đãi Đặc Biệt",
+      "placeholder": "Nhập email của bạn...",
+      "button": "Tham gia ngay",
+      "alert": "Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi cập nhật đến {{email}}"
+    },
+    "navigation": {
+      "title": "Điều Hướng",
+      "home": "Trang chủ",
+      "menu": "Thực đơn",
+      "about": "Về chúng tôi",
+      "contact": "Liên hệ"
+    },
+    "social": {
+      "title": "Kết Nối Mạng Xã Hội"
+    },
+    "bottom": {
+      "serving": "Phục vụ tất cả",
+      "designedBy": "Được thiết kế bởi Dương Hồng Phúc và Lê Thanh Thiện"
+    }
+  },
+  "ourHomeMenu": {
+    "title": "Thực Đơn Tuyệt Vời",
+    "subtitle": "Hương Vị Bùng Nổ",
+    "categories": {
+      "breakfast": "Bữa sáng",
+      "lunch": "Bữa trưa",
+      "dinner": "Bữa tối",
+      "mexican": "Món Mexico",
+      "italian": "Món Ý",
+      "desserts": "Tráng miệng",
+      "drinks": "Đồ uống"
+    },
+    "addToCart": "Thêm vào giỏ",
+    "exploreMenu": "Khám phá Menu"
+  },
+  "specialOffer": {
+    "title": "Ưu đãi đặc biệt hôm nay",
+    "subtitle": "Thưởng thức những món ăn tuyệt hảo được chế biến hoàn hảo.",
+    "add": "Thêm",
+    "showMore": "Xem thêm",
+    "showLess": "Thu gọn"
+  },
+  "ourMenu": {
+    "title": "Thực Đơn",
+    "subtitle": "Món ngon cho mọi khẩu vị",
+    "category": "Danh Mục",
+    "categories": {
+      "all": "Tất cả",
+      "breakfast": "Bữa sáng",
+      "lunch": "Bữa trưa",
+      "dinner": "Bữa tối",
+      "mexican": "Món Mexico",
+      "italian": "Món Ý",
+      "desserts": "Tráng miệng",
+      "drinks": "Đồ uống"
+    },
+    "sort": "Sắp xếp",
+    "sortOptions": {
+      "newest": "Mới nhất",
+      "popular": "Phổ biến",
+      "priceLow": "Giá tăng dần",
+      "priceHigh": "Giá giảm dần"
+    },
+    "priceRange": "Khoảng giá",
+    "rating": "Đánh giá",
+    "search": "Tìm kiếm",
+    "searchPlaceholder": "Tìm món ăn...",
+    "reset": "Đặt lại bộ lọc",
+    "addToCart": "Thêm vào giỏ",
+    "noResults": "Không có món phù hợp.",
+    "pricePrefix": "VND",
+    "loadError": "Không tải được danh sách món"
+  },
+  "navbar": {
+    "brand": "Ẩm Thực",
+    "links": {
+      "home": "Trang chủ",
+      "menu": "Thực đơn",
+      "about": "Giới thiệu",
+      "contact": "Liên hệ",
+      "myOrders": "Đơn hàng của tôi",
+      "cart": "Giỏ hàng"
+    },
+    "auth": {
+      "login": "Đăng nhập",
+      "logout": "Đăng xuất"
+    }
+  },
+  "contact": {
+    "title": "Kết nối với chúng tôi",
+    "headquarters": "Trụ sở của chúng tôi",
+    "phoneNumber": "Liên hệ số điện thoại",
+    "email": "Địa chỉ Email",
+    "name": "Họ và tên",
+    "phone": "Số điện thoại",
+    "emailField": "Email",
+    "address": "Địa chỉ",
+    "dish": "Tên món",
+    "query": "Yêu cầu",
+    "emailSubject": "Yêu cầu từ khách hàng",
+    "toastOpeningGmail": "Đang mở Gmail...",
+    "yourRequest": "Yêu cầu của bạn",
+    "queryPlaceholder": "Hãy nhắn ở đây...",
+    "submitButton": "Gửi yêu cầu",
+    "form": {
+      "name": "Họ và tên",
+      "phone": "Số điện thoại",
+      "email": "Email",
+      "address": "Địa chỉ",
+      "dish": "Tên món",
+      "namePlaceholder": "Nhập họ và tên",
+      "phonePlaceholder": "Nhập số điện thoại",
+      "emailPlaceholder": "Nhập email",
+      "addressPlaceholder": "Nhập địa chỉ",
+      "dishPlaceholder": "Nhập tên món"
+    }
+  }
+   
+}
