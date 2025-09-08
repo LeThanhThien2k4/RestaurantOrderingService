@@ -14,10 +14,11 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword'
 import VerifyOTP from './pages/VerifyOTP/VerifyOTP'
 import ResetPassword from './pages/ResetPassword/ResetPassword'
 import ChatCenter from './components/ChatCenter/ChatCenter'
-
 const App = () => {
+
   return (
-    <>
+    <> 
+
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/contact' element={<ContactPage/>}/>
