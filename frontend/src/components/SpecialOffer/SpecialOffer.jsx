@@ -78,7 +78,7 @@ const SpecialOffer = () => {
 
                   <div className=' flex items-center justify-between gap-4'>
                     <span className=' text-2xl font-bold text-amber-400 flex-1'>
-                      VND{Number(item.price).toFixed(2)}
+                     {Number(item.price).toFixed(2)} $
                     </span>
 
                     {qty > 0 ? (
