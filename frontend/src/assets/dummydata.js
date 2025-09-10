@@ -54,24 +54,28 @@ export const features = [
 
 export const stats = [
     {
+        id:1,
         number: '10M+',
         label: 'Deliveries',
         icon: GiFoodTruck,
         gradient: 'from-amber-500 via-orange-400 to-yellow-600',
     },
     {
+        id:2,
         number: '98%',
         label: 'Satisfaction',
         icon: FaHeart,
         gradient: 'from-rose-500 via-amber-500 to-yellow-500',
     },
     {
+        id:3,
         number: '500+',
         label: 'Cities',
         icon: FaLeaf,
         gradient: 'from-emerald-500 via-amber-500 to-yellow-600',
     },
     {
+        id:4,
         number: '24/7',
         label: 'Support',
         icon: FaRegClock,
@@ -81,7 +85,7 @@ export const stats = [
 
 export const teamMembers = [
     {
-        name: "Marco Yansen",
+        name: "Massimo Bottura",
         role: "Executive Chef",
         img: IA4,
         bio: "3 Michelin stars | Italian cuisine specialist",
@@ -94,7 +98,7 @@ export const teamMembers = [
         },
     },
     {
-        name: "Amit Singh",
+        name: "Gordon Ramsay",
         role: "Pastry Chef",
         img: IA5,
         bio: "World Baking Champion | French desserts expert",
@@ -107,7 +111,7 @@ export const teamMembers = [
         },
     },
     {
-        name: "Akash Trivedi",
+        name: "Nobu Matsuhisa",
         role: "Sushi Chef",
         img: IA6,
         bio: "5th generation sushi chef | Traditional techniques",
@@ -123,7 +127,7 @@ export const teamMembers = [
 
 // ABOUT HOMEPAGE
 export const aboutfeature = [
-    { icon: FaBolt, title: "Đặt hàng nhanh chóng", text: "Seamless digital experience", color: "from-amber-400 to-orange-500" },
+    { icon: FaBolt, title: "Order fast", text: "Seamless digital experience", color: "from-amber-400 to-orange-500" },
     { icon: FaRegClock, title: "Always Open", text: "24/7 premium service", color: "from-rose-400 to-pink-600" },
     { icon: FaCalendarCheck, title: "Exclusive Booking", text: "Priority reservations", color: "from-emerald-400 to-cyan-600" },
     { icon: FaFire, title: "Signature Dishes", text: "Chef's special creations", color: "from-purple-400 to-indigo-600" }
@@ -150,10 +154,10 @@ export const additionalData = [
 
 // FOOTER 
 export const socialIcons = [
-    { icon: FaFacebook, link: 'https://www.facebook.com/share/1DjbwhdR4z/', color: '#3b5998', label: 'Facebook' },
-    { icon: FaInstagram, link: 'https://www.instagram.com/hexagondigitalservices?igsh=MW1nanQ2eXIycnRkZQ==', color: '#E1306C', label: 'Instagram' },
-    { icon: FaXTwitter, link: 'https://x.com/HexagonDService?t=Vv5ReZAIbXONqkq_O0ksWQ&s=09', color: '#000', label: 'X' },
-    { icon: FaYoutube, link: 'https://youtube.com/@hexagondigitalservices?si=UnBt0AHI-ChN5Mze', color: '#FF0000', label: 'Youtube' },
+    { icon: FaFacebook, link: '', color: '#3b5998', label: 'Facebook' },
+    { icon: FaInstagram, link: '', color: '#E1306C', label: 'Instagram' },
+    { icon: FaXTwitter, link: '', color: '#000', label: 'X' },
+    { icon: FaYoutube, link: '', color: '#FF0000', label: 'Youtube' },
 ];
 
 // LOGIN 

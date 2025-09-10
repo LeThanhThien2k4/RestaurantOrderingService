@@ -28,7 +28,7 @@ const Footer = () => {
           {/* LEFT COLUMN */}
           <div className=' space-y-6'>
             <h2 className=' text-4xl sm:text-5xl md:text-5xl font-bold font-sacramento text-amber-400 animate-pulse'>
-              Foodie-Frenzy
+              Foodie
             </h2>
             <p className=' text-amber-200/90 text-sm font-sacramento italic'>
               {t("footer.tagline.line1")} <br />
@@ -121,11 +121,11 @@ const Footer = () => {
         {/* BOTTOM SECTION */}
         <div className=' border-t border-amber-800 pt-8 mt-8 text-center'>
           <p className=' text-amber-400 text-lg mb-2 font-playfair'>
-            &copy; Foodie-Frenzy. {t("footer.bottom.serving")}
+            &copy; Foodie {t("footer.bottom.serving")}
           </p>
           <div className=' group inline-block'>
             <a
-              href="https://hexagondigitalservices.com"
+              href=""
               target='_blank'
               className=' text-lg font-sacramento bg-gradient-to-r from-amber-400 via-amber-500
               to-amber-400 bg-clip-text text-transparent hover:text-purple-300 transition-all duration-500'>
