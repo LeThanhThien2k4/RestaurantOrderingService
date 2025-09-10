@@ -122,7 +122,7 @@ const OurMenu = () => {
 
           <div className="flex flex-col text-amber-100">
             <label className="mb-1 text-sm">
-              {t("ourMenu.priceRange")}: {priceRange[0]} - {priceRange[1]} VND
+              {t("ourMenu.priceRange")}: {priceRange[0]} - {priceRange[1]} 
             </label>
             <input
               type="range"
@@ -207,7 +207,7 @@ const OurMenu = () => {
                     <div className="mt-auto flex items-center gap-4 justify-between">
                       <div className="bg-amber-100/10 backdrop-blur-sm px-3 py-1 rounded-2xl shadow-lg">
                         <span className="text-xl font-bold text-amber-300 font-dancingscript">
-                          {t("ourMenu.pricePrefix")} {Number(item.price).toFixed(2)}
+                          ${Number(item.price).toFixed(2)}
                         </span>
                       </div>
 
