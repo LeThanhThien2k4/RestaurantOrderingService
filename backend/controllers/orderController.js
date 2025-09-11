@@ -38,7 +38,7 @@ export const createOrder = async (req, res) => {
 
                 line_items: orderItems.map(o => ({
                      price_data: {
-                            currency: 'inr',
+                            currency: 'usd',
                             product_data: { name: o.item.name },
                             unit_amount: Math.round(o.item.price * 100)
                         },
