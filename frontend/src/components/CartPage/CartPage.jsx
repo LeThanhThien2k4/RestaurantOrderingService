@@ -62,7 +62,7 @@ const CartPage = () => {
                       {item.name}
                     </h3>
                     <p className='text-amber-100/80 font-cinzel mt-1'>
-                      VND {Number(item.price).toFixed(2)}
+                      $ {Number(item.price).toFixed(2)}
                     </p>
                   </div>
 
@@ -94,7 +94,7 @@ const CartPage = () => {
                     </button>
 
                     <p className='text-sm font-dancingscript text-amber-300'>
-                      VND {Number(item.price * quantity).toFixed(2)}
+                      $ {Number(item.price * quantity).toFixed(2)}
                     </p>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ const CartPage = () => {
 
                 <div className='flex items-center gap-8'>
                   <h2 className='text-3xl font-dancingscript text-amber-100'>
-                    {t("cartPage.total")}: VND {Number(totalAmount).toFixed(2)}
+                    {t("cartPage.total")}: $ {Number(totalAmount).toFixed(2)}
                   </h2>
                   <Link to='/checkout' className='bg-amber-900/40 px-8 py-3 rounded-full font-cinzel uppercase
                     tracking-wider hover:bg-amber-800/50 transition-all duration-300 text-amber-100 flex
