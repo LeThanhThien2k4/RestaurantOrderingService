@@ -4,12 +4,9 @@ Foodie là một ứng dụng quản lý đặt món ăn trực tuyến, đượ
 
 Ứng dụng cho phép người dùng xem menu, đặt món, và quản lý đơn hàng.  
 
----
-
 ## Demo Local
 Bạn có thể chạy project trên máy local để trải nghiệm.
 
----
 
 ## Yêu cầu
 - Node.js >= 16  
@@ -18,24 +15,20 @@ Bạn có thể chạy project trên máy local để trải nghiệm.
 - Tài khoản Cloudinary (nếu có upload ảnh)  
 - Stripe API key (nếu có thanh toán)  
 
----
 
 ## **1. Clone repository**
-```bash
-git clone https://github.com/username/foodie.git
-cd foodie
-2. Cài đặt dependencies
-bash
-Sao chép mã
+
+git clone https://github.com/LeThanhThien2k4/RestaurantOrderingService.git
+
+## **2. Cài đặt dependencies**
 npm install
-3. Tạo file .env
+
+## **3. Tạo file .env**
 Tạo file .env tại thư mục gốc của project.
 
-4. Cấu hình biến môi trường
+## **4. Cấu hình biến môi trường**
 Mở file .env và điền các thông tin cần thiết:
-
-env
-Sao chép mã
+```bash
 FRONTEND_URL=http://localhost:5173/
 GEMINI_API_KEY=your_API_KEY
 MONGO_URI=your_mongodb_connection_string
@@ -44,18 +37,32 @@ CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 STRIPE_KEY=your_stripe_key
 JWT_SECRET=secret
-5. Chạy project
+```
+
+## **5. Chạy project**
+
 Frontend
-bash
-Sao chép mã
+```bash
 cd frontend
 npm run dev
+```
 Backend
-bash
-Sao chép mã
+```bash
 cd backend
 npm run start
-6. Mở trình duyệt
+```
+## **6. Mở trình duyệt**
 Frontend: http://localhost:5173/
 
 Backend: http://localhost:4000/
+## **Cấu trúc thư mục**
+
+/frontend : mã nguồn React
+
+/backend : mã nguồn Node.js/Express
+
+/src : components, pages, utils, assets
+
+## **Liên hệ**
+
+Nếu gặp vấn đề khi chạy project, vui lòng liên hệ: thienlethanh2210@gmail.com
