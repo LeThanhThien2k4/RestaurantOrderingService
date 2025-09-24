@@ -20,12 +20,42 @@ Bạn có thể chạy project trên máy local để trải nghiệm.
 
 ---
 
-## Cài đặt
-
-### 1. Clone repository
+## **1. Clone repository**
 ```bash
 git clone https://github.com/username/foodie.git
 cd foodie
-
 2. Cài đặt dependencies
+bash
+Sao chép mã
 npm install
+3. Tạo file .env
+Tạo file .env tại thư mục gốc của project.
+
+4. Cấu hình biến môi trường
+Mở file .env và điền các thông tin cần thiết:
+
+env
+Sao chép mã
+FRONTEND_URL=http://localhost:5173/
+GEMINI_API_KEY=your_API_KEY
+MONGO_URI=your_mongodb_connection_string
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+STRIPE_KEY=your_stripe_key
+JWT_SECRET=secret
+5. Chạy project
+Frontend
+bash
+Sao chép mã
+cd frontend
+npm run dev
+Backend
+bash
+Sao chép mã
+cd backend
+npm run start
+6. Mở trình duyệt
+Frontend: http://localhost:5173/
+
+Backend: http://localhost:4000/
