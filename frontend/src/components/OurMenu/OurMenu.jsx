@@ -45,14 +45,14 @@ const OurMenu = () => {
       const meetsPrice = price >= priceRange[0] && price <= priceRange[1];
       const meetsRating = !ratingFilter || item.rating >= ratingFilter;
       const meetsCategory =
-        selectedCategory === 'all' || item.category === selectedCategory;
+        selectedCategory === 'all' || (item.category && item.category.toLowerCase() === selectedCategory.toLowerCase());
       const meetsSearch =
         !searchQuery || item.name.toLowerCase().includes(searchQuery.toLowerCase());
       return meetsPrice && meetsRating && meetsCategory && meetsSearch;
     });
 
   let displayItems = filterItems(menuData);
-
+  
   if (sortBy === 'newest') {
     displayItems.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   } else if (sortBy === 'popular') {
