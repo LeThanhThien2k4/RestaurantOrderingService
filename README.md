@@ -25,6 +25,7 @@ git clone https://github.com/username/foodie.git
 cd foodie
 
 2. Cài đặt dependencies:
+```bash
 npm install
 
 3. Tạo file .env :
