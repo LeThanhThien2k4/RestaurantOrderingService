@@ -24,45 +24,31 @@ Bạn có thể chạy project trên máy local để trải nghiệm.
 git clone https://github.com/username/foodie.git
 cd foodie
 
-2. Cài đặt dependencies:
+2. Cài đặt dependencies
 npm install
 
-3. Tạo file .env :
-
-4. Mở file .env và điền các thông tin cần thiết:
-FRONTEND_URL='http://localhost:5173'
+3. Tạo file .env
+4. Mở file .env và điền các thông tin cần thiết
+FRONTEND_URL='http://localhost:5173/'
 GEMINI_API_KEY=your_API_KEY
 MONGO_URI=your_mongodb_connection_string
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 STRIPE_KEY=your_stripe_key
-JWT_SECRET = "secret"
+JWT_SECRET="secret"
 
-5. Chạy project:
-
-Frontend:
+5. Chạy project
+Frontend
 cd frontend
 npm run dev
 
-Backend:
+Backend
 cd backend
 npm run start
 
-6. Mở trình duyệt:
+6. Mở trình duyệt
 
 Frontend: http://localhost:5173/
 
 Backend: http://localhost:4000/
-
-Cấu trúc thư mục
-
-/frontend : mã nguồn React
-
-/backend : mã nguồn Node.js/Express
-
-/src : components, pages, utils, assets
-
-Liên hệ
-
-Nếu gặp vấn đề khi chạy project, vui lòng liên hệ: thienlethanh2210@gmail.com
